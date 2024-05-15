@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mern/web</title>
+    <!-- external css -->
+    <link rel="stylesheet" href="./css/style.css">
+
+
+    <!-- internal css -->
+    <style>
+        /* 
+            css syntax: 
+            <selector>{
+              <css-property>: <css-value>;
+              <css-property>: <css-value>;
+            }  
+
+            selector
+              element / tag 
+              class
+              id
+         */
+
+
+        /* .active-link{
+          color:red;
+        font-weight: bold;
+        text-decoration: underline;
+        } */
+
+
+        .highlight{
+          background-color: yellow;
+          display: inline;
+        }
+
+        .bold{
+        font-weight: bold;
+        }
+
+        /* a{
+          text-decoration: none;
+          color: inherit;
+        text-transform: capitalize;
+        } */
+
+
+        #heading{
+        text-align: center;
+        color:red;
+        } 
+
+        .underline{
+          text-decoration: underline;
+        }
+
+        h2{
+          text-transform: uppercase;
+        }
+
+        #javascript{
+          text-decoration: underline;
+        }
+
+        img{
+          width: 300px;
+        }
+
+        /* li{
+          display: inline;
+        } */
+
+
+        .inline{
+          display: inline;
+        }
+
+
+
+    </style>
+  
+  </head>
+  <body>
+    <header>
+      <a href="#" class="active-link" style="color:green; font-weight: bold; text-decoration: underline; " >home</a>
+      <!-- should not use absolut path -->
+      <!-- <a href="file:///D:/Desktop/baishakh/contact.html">contact</a> -->
+
+      <a href="./contact.html">contact</a>
+      <a href="./courses/mern.html">mern</a>
+      <a href="./courses/upcomming/ai.html">ai</a>
+    </header>
+
+    <h1 id="heading">Web Development / mern-stack</h1>
+    <p>
+     <span class="bold highlight"> Lorem ipsum</span> dolor sit amet, consectetur adipisicing elit. Provident
+      aliquam nostrum doloremque <span class="underline bold" >voluptatibus debitis </span> labore rem dicta aperiam
+      saepe neque numquam odit praesentium quod blanditiis, necessitatibus
+      molestiae ut quaerat laudantium.
+    </p>
+    <ul>
+    <ul>
+      <li>
+        <h2>html</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex eaque
+          ullam accusamus, sapiente voluptatum laboriosam, debitis pom.
+        </p>
+        <ul>
+          <li>
+            <h3>element</h3>
+            <ul>
+              <li>inline eg:&lt;a&gt;</li>
+              <li>inline-block eg: &lt;img&gt;</li>
+              <li>block eg:&lt;p&gt;</li>
+            </ul>
+          </li>
+          <li><h3>attribute</h3></li>
+        </ul>
+      </li>
+      <li>
+        <h2>css</h2>
+      </li>
+      <li>
+        <h2 id="javascript" class="underline highlight">js</h2>
+      </li>
+    </ul>
+
+    <h2>Path</h2>
+    <ol>
+      <li>absolute path</li>
+      <li class="underline">realtive path</li>
+    </ol>
+    <img src="https://cdn-kehhb.nitrocdn.com/iEJFLbwsQHQzpVjXnwXhzYxhRIedkADp/assets/images/optimized/rev-7530dd7/devtechnosys.com/insights/wp-content/uploads/2022/12/Mern-Stack.png" alt="">
+    <img src="https://www.rlogical.com/wp-content/uploads/2020/12/MERN.webp" alt="">
+    <!-- <img src="./assets/glasses.jpg" alt=""> -->
+    <footer>
+      <ul>
+        <li class="inline"><a href="https://www.facebook.com/" target="_blank">facebook</a></li>
+        <li class="inline"><a href="https://www.youtube.com/">youtube</a></li>
+        <li class="inline"><a href="https://www.youtube.com/">instagram</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

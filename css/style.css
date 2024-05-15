@@ -1,0 +1,21 @@
+a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: capitalize;
+}
+
+/*
+specificity score
+     tag < class < id < inline < !important
+
+*/
+.active-link {
+  color: red !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+.box{
+  border: 1px dotted;
+}

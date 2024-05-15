@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* and selector */
+      a.active {
+        color: red;
+        font-weight: bold;
+      }
+
+      .card {
+        width: 250px;
+        background-color: whitesmoke;
+        border: 1px solid gray;
+        margin-left: auto;
+        margin-right: auto;
+        margin: 0 auto;
+        margin-bottom: 50px;
+      }
+
+      /* descendent seclector */
+      div img {
+        /* width: 250px; */
+      }
+
+      .card img {
+        width: 250px;
+      }
+
+      .card-image {
+        width: 250px;
+      }
+
+
+      /* and selector */
+      li.active {
+        color: black;
+        font-weight:bold ;
+      }
+      
+      .users li {
+        color: gray;
+      }
+      
+      
+
+      
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="">home</a>
+      <a href="">contact<span class="active">-us</span></a>
+      <a href="" class="active">combined selector</a>
+    </header>
+
+    <h1>combined selectors & specificity score</h1>
+    <ul>
+      <li>descendent</li>
+    </ul>
+
+    <div class="card">
+      <img class="" src="./assets/card.jpg" alt="" />
+      <div class="card-body">
+        <div class="tags">
+          <p class="tag">lake</p>
+          <p class="tag">nature</p>
+        </div>
+        <p class="heading">Lorem, ipsum dolor.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam iure,
+          ipsa expta?
+        </p>
+        <a href="">Read more</a>
+      </div>
+    </div>
+    
+
+    <div class="">
+      <img
+        src="https://www.rlogical.com/wp-content/uploads/2020/12/MERN.webp"
+        alt=""
+      />
+      <p>
+        mern is soemthign .. Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit. Exercitationem eaque repellat ducimus alias aliquam placeat
+        commodi quae animi deserunt reprehenderit earum ipsa harum natus,
+        tempore cupiditate repellendus sunt veritatis nisi.
+      </p>
+    </div>
+
+    <h2>Users</h2>
+    <hr />
+    <ul class="users" id="users">
+      <li class="active">ram</li>
+      <li class="active">shyam</li>
+      <li class="">abc</li>
+      <li class="">xyz</li>
+      <li class="">ijk</li>
+      <li class="">hari</li>
+      <li class="">sita</li>
+    </ul>
+
+    <h1>Specificity score</h1>
+  </body>
+</html>
