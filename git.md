@@ -6,7 +6,6 @@
     
     2.1 (optional) to check .2
         > git remote -v
-    
 
 <!-- for everyday pull push in git -->
 1. > git status (optional)
@@ -17,3 +16,6 @@
 4. > git push 
 
 
+<!-- to clone github repo -->
+> git clone <github_url>
+    eg: git clone https://github.com/sagartmg2/baisakh-2081
