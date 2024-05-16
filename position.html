@@ -5,30 +5,88 @@
     <meta name="viewport" content="width=\, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      ul {
+        list-style: none;
+      }
       .static {
         position: static;
       }
       .relative {
-        /* position: relative; */
+        background-color: white;
+        position: relative;
+        top: 50px;
+        left: 50px;
       }
       .absolute {
-        /* position: absolute; */
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: orange;
       }
-      .fixed {
-        /* position: fixed; */
-      }
+
       .sticky {
         /* position: sticky; */
       }
 
-      .box{
-        height: 200px;
-        width:  200px;
+      .box {
+        height: 100px;
+        width: 100px;
         border: 1px solid;
+      }
+
+      .fixed {
+        position: fixed;
+        background-color: green;
+        bottom: 50px;
+        right: 50px;
+        height: 50px;
+        width: 50px;
+      }
+
+      .active-link {
+        position: relative;
+        bottom: 10px;
+        left: 10px;
+      }
+
+      .product {
+        border: 1px solid;
+        padding: 1rem;
+        width: 250px;
       }
     </style>
   </head>
   <body>
+    <header>
+      <a href="" class="active-link">home</a>
+      <a href="">about</a>
+      <a href="">contact</a>
+    </header>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
     <h1>css positions</h1>
     <ul>
       <li class="box static">static</li>
@@ -37,5 +95,55 @@
       <li class="box fixed">fixed</li>
       <li class="box sticky">sticky</li>
     </ul>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque totam
+      explicabo recusandae expedita, culpa reprehenderit obcaecati eius repellat
+      labore doloribus eum dolorem mollitia possimus quam ut tenetur officia
+      voluptates facere!
+    </p>
+
+    <div class="product">
+      <span>icon</span>
+      <img src="./image 1.png" alt="">
+      <button>view details</button>
+      <p>Product Title</p>
+    </div>
   </body>
 </html>
