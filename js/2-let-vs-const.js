@@ -115,7 +115,6 @@ let userData = null
 let pricePrice = 100
 pricePrice = "hundared fifty"
 
-
 /* 
     research  on 
     array 
