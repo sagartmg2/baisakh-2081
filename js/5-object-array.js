@@ -60,6 +60,10 @@ let person = {
   },
 }
 
+let fruits =  ["apple","porgne"] 
+fruits[1] = "orange"
+
+
 let students = [
   {
     name: "ram",
@@ -83,10 +87,13 @@ let students = [
         title: "web",
       },
       {
-        title: "ux", // changet this to ui ux
+        title: "wrong title", // changet this to ui ux
       },
     ],
   },
 ]
+
+/* code  */
+console.log(students);
 
 let classes = ["one", "two", "there"] // sections ABC , classteacher, students
