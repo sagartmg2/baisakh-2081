@@ -92,16 +92,116 @@ console.log(classes)
 
 /*  ecommerce carts  */
 
-/* conver the following array to detailed version */
-let carts = ["watch","keyboard","watch","mouse"]
+/* convert the following array to detailed version */
+let carts = ["watch", "keyboard", "watch", "mouse"]
 /* who ordered watch  : name, email , address: homeAddress :street name, ward_no,  officeAddress */
 /* quantity of watch orderd */
 /* rate  of the product */
-/* totalPrice  of the product */
 /* date of the product ordered */
 
+carts = [
+  {
+    productTitle: "watch",
+    quantity: "12",
+    rate: 1231,
+    date: "12-23",
+    user: {
+      name: "ram",
+      email: "Ram@gmai.com",
+      address: {
+        homeAddress: {},
+        officeAddress: {},
+      },
+    },
+  },
+  {
+    productTitle: "keyboard",
+    quantity: "12",
+    rate: 1231,
+    date: "12-23",
+    user: {
+      name: "ram",
+      email: "Ram@gmai.com",
+      address: {
+        homeAddress: {},
+        officeAddress: {},
+      },
+    },
+  },
+  {
+    productTitle: "watch",
+    quantity: "12",
+    rate: 1231,
+    date: "12-23",
+    user: {
+      name: "ram",
+      email: "Ram@gmai.com",
+      address: {
+        homeAddress: {},
+        officeAddress: {},
+      },
+    },
+  },
+]
 
+let rooms = [  ]
 
+carts = [
+  {
+    productTitle: "watch",
+    rate: 1231,
+    users: [
+      {
+        quantity:10,
+        date:"12-10",
+        name: "ram",
+        email: "Ram@gmai.com",
+        address: {
+          homeAddress: {},
+          officeAddress: {},
+        },
+      },
+      {
+        quantity:1,
+        date:"1-10",
+        name: "hari",
+        email: "hari@gmai.com",
+        address: {
+          homeAddress: {},
+          officeAddress: {},
+        },
+      }
+    ]
+  },
+  {
+    productTitle: "keyboard",
+    quantity: "12",
+    rate: 1231,
+    date: "12-23",
+    user: {
+      name: "ram",
+      email: "Ram@gmai.com",
+      address: {
+        homeAddress: {},
+        officeAddress: {},
+      },
+    },
+  },
+  {
+    productTitle: "watch",
+    quantity: "12",
+    rate: 1231,
+    date: "12-23",
+    user: {
+      name: "ram",
+      email: "Ram@gmai.com",
+      address: {
+        homeAddress: {},
+        officeAddress: {},
+      },
+    },
+  },
+]
 
 
 
