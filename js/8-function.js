@@ -3,8 +3,8 @@ function double(input) {
 }
 
 double(2)
-double(100)
-double(150)
+double()
+double(110050)
 
 /* 
         let input1 = 1
