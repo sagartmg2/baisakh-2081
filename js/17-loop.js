@@ -71,6 +71,37 @@ let students = [student1, student2, student3]
 let eligibleStudents = []
 let nonEligibleStudents = []
 
-
 /* eligible students */
 /* non eligible students */
+
+ students.forEach((student) =>{
+    if((student.hasScholorship || student.paidStatus )&& student.hasMetAttandence) {
+      eligibleStudents.push(student)  
+      }else{
+        nonEligibleStudents.push(student)  
+    }
+}) 
+
+
+eligibleStudents = students.filter((student) =>{
+    if((student.hasScholorship || student.paidStatus )&& student.hasMetAttandence){
+        return true
+    }
+})
+
+nonEligibleStudents = students.filter((student) =>{
+    if((student.hasScholorship || student.paidStatus )&& student.hasMetAttandence){
+        return false
+    }else{
+        return true
+    }
+})
+
+nonEligibleStudents = students.filter((student) =>{
+    if(!((student.hasScholorship || student.paidStatus )&& student.hasMetAttandence)){
+        return true
+    }
+})
+
+
+
