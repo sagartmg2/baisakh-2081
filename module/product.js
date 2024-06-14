@@ -14,6 +14,7 @@ const editProduct = () => {
 // module.exports = deleteProduct
 
 module.exports = {
-    "createProduct":createProduct,
-    deleteProduct
+    createProduct: createProduct,
+    deleteProduct,
+    data: [1, 2,3, 4],
 }

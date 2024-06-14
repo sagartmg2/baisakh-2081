@@ -51,4 +51,5 @@ signup("ram", "ram@gamil.com", "1234")
 
 product.createProduct()
 product.deleteProduct()
+console.log(product.data)
 // editProduct()
