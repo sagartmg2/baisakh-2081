@@ -1,52 +1,53 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
 import "./index.css"
+import Project from "./Project"
 
-let title = "Projects compoleted"
+let heading = "My Projects"
+let projects = [
+    {
+        title:"react",
+        price:100,
+        date:2024
+    },
+    {
+        title:"react1",
+        price:100,
+        date:2024
+    },
+    {
+        title:"react2",
+        price:100,
+        date:2024
+    },
+    {
+        title:"react34",
+        price:100,
+        date:2024
+    },
+    {
+        title:"react4",
+        price:100,
+        date:2024
+    },
+]
 
-/* component  */
-function Project(props) {
-    console.log("props", props)
-    return (
-        <div className="project">
-            <img src={props.image} />
-            <h2>
-                {props.title} (RS.{props.price} )
-            </h2>
-            <p>{props.date}</p>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui,
-                impedit? Repudiandae, expedita inventore velit placeat iure
-                dolorum maxime animi sint sed quos cupiditate architecto tempora
-                ex labore vero in fuga.
-            </p>
-        </div>
-    )
-}
+/* 
+    function =  Component
+    parameters = props
+*/
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <h1>{title}</h1>
-        <header id="header" class="header" />
+        <h1 clas="123" id="heading">
+            {heading}
+        </h1>
         <hr />
-        {/* Product("git",1000,"2024-05-08" ,"")  */}
-        <Project
-            title="git"
-            price="1000"
-            date="2024"
-            image="https://picsum.photos/200/201"
-        />
-        <Project
-            title="node"
-            price="21000"
-            date="2024"
-            image="https://picsum.photos/200/202"
-        />
-        <Project
-            title="react"
-            price="1300"
-            date="2024"
-            image="https://picsum.photos/200/203"
-        />
+        {/* Project("react",1000,"2024") */}
+        <Project title="react" price={2000} date={2025} />
+        <Project title="git" price={1000} date={2024} />
+        <Project title="node" price={3000} date={2024} />
+        <Project title="express" price={3000} date={2024} />
+        <Project title="mongodb" price={3000} date={2024} />
     </React.StrictMode>
 )
