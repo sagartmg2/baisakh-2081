@@ -1,5 +1,4 @@
 export default function Users() {
-
     /* falsey values  false 0 "" NaN undeinfed null */
 
     let users = [
@@ -8,10 +7,10 @@ export default function Users() {
         { name: "sita", status: false },
         { name: "gita", status: true },
         { name: "rita", status: false },
-        { name: "abc", status: false},
-        { name: "xyz", status: true},
+        { name: "abc", status: false },
+        { name: "xyz", status: true },
     ]
-    
+
     return (
         <div>
             <h2>Users List</h2>
@@ -19,7 +18,11 @@ export default function Users() {
             {false}
             <ul>
                 {users.map((user) => {
-                    return <li> {user.name} ( { user.status ? "yes" : "no" } ) </li>
+                    return (
+                        <li key={user.name}>
+                            {user.name} ( {user.status ? "yes" : "no"} ){" "}
+                        </li>
+                    )
                 })}
             </ul>
         </div>

@@ -1,3 +1,6 @@
+import { useState } from "react"
+import Product from "./Product"
+
 let apiData = {
     products: [
         {
@@ -1785,6 +1788,8 @@ let apiData = {
     limit: 30,
 }
 
+let dummyData = ["one", "two", "three", "four"]
+
 function Products() {
     return (
         <>
@@ -1793,17 +1798,49 @@ function Products() {
             </h2>
             list of products
             <ul>
-                TODO: show products using map function
-                <li>essesnce</li>
-                <li>iphone</li>
+                {dummyData.map((el) => {
+                    return <li key={el}>{el}</li>
+                })}
+
+                {/* {apiData.products.map((product) => {
+                    return <li key={product.id}>{product.title}</li>
+                })} */}
+
+                {apiData.products.map((product) => {
+                    return (
+                        <Product
+                            key={product.id}
+                            product={product}
+                            // title={product.title}
+                            // thumbnail={product.thumbnail}
+                            // description={product.description}
+                            // price = {product.price}
+                        />
+                    )
+                })}
+
+                {/* {apiData.products.map((product) => {
+                    return (
+                        <div className="project">
+                            <img className="" src={product.thumbnail} alt="" />
+                            <p>{product.title}</p>
+                            <p>{product.description}</p>
+                        </div>
+                    )
+                })} */}
+
+                {/* <li>essesnce</li>
+                 <li>essesnce</li>
+                 <li>essesnce</li> */}
+
+                {/* <li>item...</li>
                 <li>item...</li>
                 <li>item...</li>
                 <li>item...</li>
                 <li>item...</li>
                 <li>item...</li>
                 <li>item...</li>
-                <li>item...</li>
-                <li>item...</li>
+                <li>item...</li> */}
             </ul>
         </>
     )
