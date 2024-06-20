@@ -4,6 +4,8 @@ import "./index.css"
 import Projects from "./Projects"
 import Users from "./Users"
 import Products from "./Products"
+import Counter, { BigCounter, SmallCounter } from "./Counter"
+import TodoList from "./TodoList"
 
 /* 
     function =  Component
@@ -12,8 +14,11 @@ import Products from "./Products"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <Products/>
+        <Counter />
+        <TodoList/>
+     
+        {/* <Products/>
         <Users/>
-        <Projects />
+        <Projects /> */}
     </React.StrictMode>
 )
