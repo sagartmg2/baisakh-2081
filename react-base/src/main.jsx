@@ -6,6 +6,8 @@ import Users from "./Users"
 import Products from "./Products"
 import Counter, { BigCounter, SmallCounter } from "./Counter"
 import TodoList from "./TodoList"
+import GoogleTabs from "./GoogleTabs"
+import GoogleTabsTwo from "./GoogleTabsTwo"
 
 /* 
     function =  Component
@@ -14,10 +16,13 @@ import TodoList from "./TodoList"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
+        <GoogleTabs />
+
+        {/* 
+        <GoogleTabsTwo/>
         <Counter />
         <TodoList/>
-     
-        {/* <Products/>
+        <Products/>
         <Users/>
         <Projects /> */}
     </React.StrictMode>

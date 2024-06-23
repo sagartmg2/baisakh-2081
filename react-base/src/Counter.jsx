@@ -14,7 +14,7 @@ function Counter() {
     console.log("re-render")
 
     let countValue = 100
-    
+
     const [state, setState] = useState(100)
 
     function increment() {
@@ -36,6 +36,7 @@ function Counter() {
             {/* <button onClick="increment()">increment</button> */}
             {/* <button onClick={increment()}>increment</button> */}
 
+            <button onClick={increment}>increment</button>
             <button onClick={increment}>increment</button>
         </div>
     )
