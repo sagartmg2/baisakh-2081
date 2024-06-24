@@ -8,6 +8,7 @@ import Counter, { BigCounter, SmallCounter } from "./Counter"
 import TodoList from "./TodoList"
 import GoogleTabs from "./GoogleTabs"
 import GoogleTabsTwo from "./GoogleTabsTwo"
+import ShoppingList from "./ShoppingList"
 
 /* 
     function =  Component
@@ -16,12 +17,12 @@ import GoogleTabsTwo from "./GoogleTabsTwo"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <GoogleTabs />
-
+        <ShoppingList />
         {/* 
+        <TodoList />
+        <GoogleTabs />
         <GoogleTabsTwo/>
         <Counter />
-        <TodoList/>
         <Products/>
         <Users/>
         <Projects /> */}

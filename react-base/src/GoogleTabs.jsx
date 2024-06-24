@@ -2,6 +2,8 @@ import React, { useState } from "react"
 
 export default function GoogleTabs() {
     // let currentTab = "all" // <--- this can re-render component on update
+
+    
     let [currentTab, setCurrentTab] = useState("all")
 
     function changeToAll() {
