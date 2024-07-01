@@ -1,30 +1,41 @@
 const express = require("express")
 const app = express()
+const cors = require("cors")
+app.use(cors())
 
-app.use(express.json()) // middleware
+/* middleware
+    a function which has access to request and response
+    it can also change request and response
+    and also has access to next upcomming valid middleware
+    runs prior to our routes
+*/
 
-// app.use((req,res) =>{
-//   console.log("inside middleware.");
-//   res.status(401).send("not logged in ")
-// })
+let isLogged = true
+let user = { name: "ram" }
+function checkAuthentication(req, res, next) {
+    console.log("check authenctiona")
+    if (!isLogged) {
+        res.status(401).send("un auhtnenticated.")
+    } else {
+        req.user = user // we can change request from middleware
+        next()
+    }
+}
+
+/* global middleware */
+app.use(express.json()) // express.json = () => (req,res,next) =>{ req.body = postman body  }
+app.use(checkAuthentication)
 
 let dbTodos = [
     { title: "html", status: true },
     { title: "css", status: true },
 ]
 
-app.get("/", function (req, res) {
-    res.send("Hello Worldddd")
-})
-
 app.get("/api/todos", function (req, res) {
-    console.log("get todos")
     res.send(dbTodos)
 })
 
 app.post("/api/todos", function (req, res) {
-    console.log(req.body)
-    console.log("post todos")
     dbTodos.push({
         title: req.body.title,
         status: false,

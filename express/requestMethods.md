@@ -6,17 +6,17 @@ CRUD
 
 
 http request methods
-GET - red
+GET - read
 POST - Create
 PUT/PATCH - update
-DELET -delet
+DELET -delete
 
 
 Status code 
-    2
+    2  success
         200 203 204
-    3
-        redirect 304
+    3  redidrect
+         304
     4  client error
         400 401 403 404 
     5 backend error
