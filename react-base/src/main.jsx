@@ -17,9 +17,9 @@ import ShoppingList from "./ShoppingList"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
+        {/* 
         <ShoppingList />
         <TodoList />
-        {/* 
         <GoogleTabs />
         <GoogleTabsTwo/>
         <Counter />
