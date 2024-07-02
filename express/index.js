@@ -1,9 +1,23 @@
 const express = require("express")
+const mongoose = require("mongoose")
 const app = express()
 const cors = require("cors")
 app.use(cors())
 
-/* middleware
+mongoose
+    .connect("mongodb://127.0.0.1:27017/mern")
+    .then(() => console.log("DB Connected!"))
+
+const Schema = mongoose.Schema
+const TodoSchema = new Schema({
+    title: String,
+    status: Boolean,
+})
+
+const Todo = mongoose.model("Todo", TodoSchema)
+
+/* 
+    middleware
     a function which has access to request and response
     it can also change request and response
     and also has access to next upcomming valid middleware
@@ -26,25 +40,39 @@ function checkAuthentication(req, res, next) {
 app.use(express.json()) // express.json = () => (req,res,next) =>{ req.body = postman body  }
 app.use(checkAuthentication)
 
-let dbTodos = [
-    { title: "html", status: true },
-    { title: "css", status: true },
-]
-
-app.get("/api/todos", function (req, res) {
-    res.send(dbTodos)
+app.get("/api/todos", async function (req, res) {
+    try {
+        let todos = await Todo.find()
+        console.log(todos)
+        res.send(todos)
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({
+            success: false,
+            msg: "server error",
+        })
+    }
 })
 
-app.post("/api/todos", function (req, res) {
-    dbTodos.push({
+app.post("/api/todos", async function (req, res) {
+    /* db.todos.insertOne(...}) */
+    let todo = await Todo.create({
         title: req.body.title,
         status: false,
     })
-    res.send("todos created")
+
+    res.send(todo)
 })
 
-app.delete("/api/todos", function (req, res) {
-    dbTodos = []
+app.put("/api/todo/:id",() =>{
+    Todo.findByIdAndUpdate(id,{
+        ///
+    })
+    // code here to update 
+})
+
+app.delete("/api/todos-reset", async function (req, res) {
+    await Todo.deleteMany({})
     res.send("todos deleted")
 })
 
