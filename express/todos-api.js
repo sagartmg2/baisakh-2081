@@ -22,10 +22,11 @@ app.get("/api/todos", async function (req, res) {
         let todos = await Todo.find()
         res.send(todos)
     } catch (err) {
-        res.status(500).send("server error")
+        res.status(500).send({
+            msg: "server error",
+        })
     }
 })
-
 
 app.post("/api/todos", async function (req, res) {
     try {
@@ -34,7 +35,9 @@ app.post("/api/todos", async function (req, res) {
             status: false,
         })
         res.send(todo)
-    } catch (err) {}
+    } catch (err) {
+        res.status(500).send("server error")
+    }
 })
 
 /* slug */
@@ -49,8 +52,8 @@ app.put("/api/todos/:id", async function (req, res) {
 })
 
 app.delete("/api/todos/:id", async function (req, res) {
-  await Todo.findByIdAndDelete(req.params.id)
-  // await Todo.deleteOne({_id:req.params.id})
+    await Todo.findByIdAndDelete(req.params.id)
+    // await Todo.deleteOne({_id:req.params.id})
     res.send("deletee")
 })
 app.delete("/api/todos-reset", async function (req, res) {
