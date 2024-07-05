@@ -56,6 +56,7 @@ app.delete("/api/todos/:id", async function (req, res) {
     // await Todo.deleteOne({_id:req.params.id})
     res.send("deletee")
 })
+
 app.delete("/api/todos-reset", async function (req, res) {
     await Todo.deleteMany({})
     res.send("deletee")
