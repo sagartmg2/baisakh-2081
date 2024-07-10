@@ -2,9 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .container {
+        @apply  mx-auto px-3 w-full sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px]  xl:max-w-[1170px]  2xl:max-w-[1320px] ;
+    }
+}
+
+
 /* .header{
     background-color: #7E33E0;
     color:white;
     padding-top: 14px;
     padding-bottom: 14px;
+} */
+.track {
+    border: 1px solid red !important;
+}
+
+/* .container{
+    padding-left: .75rem;
+    padding-right: .75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(min-width:576px){
+    .container{
+        max-width: 540px;
+    }
+}
+
+@media(min-width:768px){
+    .container{
+        max-width: 720px;
+    }
 } */
