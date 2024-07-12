@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { CiMail, CiSearch } from "react-icons/ci"
 import { FaPhoneAlt } from "react-icons/fa"
 import { MdMenu } from "react-icons/md"
+import { Link } from "react-router-dom"
+
 export default function Header() {
     const [showMenu, setShowMenu] = useState(false)
     return (
@@ -18,13 +20,16 @@ export default function Header() {
                             987325345234
                         </div>
                     </div>
-                    <div>login cart</div>
+                    <div>
+                        {/* <a href="/login">login</a> */}
+                        <Link to="/login">login</Link>
+                    </div>
                 </nav>
             </div>
-            <nav className="flex flex-wrap justify-between container py-3 lg:py-4 xl:py-5">
-                <p className="text-[#0D0E43] font-semibold  text-[21px] md:text-[24px] lg:text-[27px] xl:text-[30px] 2xl:text-[34px]">
+            <nav className=" flex flex-wrap items-center justify-between container py-3 lg:py-4 xl:py-5">
+                <Link to="/" className="text-[#0D0E43] font-semibold  text-[21px] md:text-[24px] lg:text-[27px] xl:text-[30px] 2xl:text-[34px]">
                     Hekto
-                </p>
+                </Link>
                 <MdMenu
                     onClick={() => {
                         setShowMenu(!showMenu)
@@ -32,12 +37,13 @@ export default function Header() {
                     className="text-[32px] lg:hidden "
                 />
                 <div
-                    className={`w-full transition-all ease-linear duration-300  track ${
+                    className={`w-full transition-all ease-linear duration-300 ${
                         showMenu ? "max-h-[999px] " : "max-h-0 overflow-hidden"
                     }  text-center lg:w-auto lg:max-h-[999px] lg:flex lg:gap-40`}
                 >
                     <div className="flex flex-col lg:flex-row justify-center gap-4">
-                        <a href="">home</a>
+                        {/* <a href="/">home</a> */}
+                        <Link to="/">home</Link>
                         <a href="">products</a>
                         <a href="">orders</a>
                         <a href="">about</a>
