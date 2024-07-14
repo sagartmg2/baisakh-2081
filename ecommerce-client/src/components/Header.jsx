@@ -8,7 +8,7 @@ export default function Header() {
     const [showMenu, setShowMenu] = useState(false)
     return (
         <header className="">
-            <div className="bg-[#7E33E0]">
+            <div className="bg-primary">
                 <nav className="container  text-white py-4 flex justify-between">
                     <div className="flex flex-col md:flex-row md:gap-4 lg:gap-8">
                         <div>
@@ -43,16 +43,16 @@ export default function Header() {
                 >
                     <div className="flex flex-col lg:flex-row justify-center gap-4">
                         {/* <a href="/">home</a> */}
-                        <Link to="/">home</Link>
+                        <Link className="text-secondary" to="/">home</Link>
                         <a href="">products</a>
                         <a href="">orders</a>
                         <a href="">about</a>
                         <a href="">contact</a>
                         <a href="">testimonials</a>
                     </div>
-                    <div>
+                    <div className="flex">
                         <input className="border border-black" />
-                        <CiSearch className="inline" />
+                        <CiSearch className="px-1 inline bg-secondary text-white h-full w-6"  />
                     </div>
                 </div>
             </nav>
