@@ -1,34 +1,65 @@
 import React, { useState } from "react"
 import Header from "../components/Header"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export default function Signup() {
     const [formFields, setFormFields] = useState({
-        name:"",
-        email:"" ,
-        password:"",
-        role:""
+        name: "",
+        email: "",
+        password: "",
+        role: "",
     })
 
+    const [formError, setFormError] = useState({})
+    const navigate = useNavigate() // return () =>{}
+    const [isSubmittting, setisSubmittting] = useState(false)
+
     const handleSubmit = (e) => {
+        setFormError({})
         e.preventDefault()
-        axios.post("https://ecommerce-sagartmg2.vercel.app/api/users/signup", {
-            name: e.target.name.value,
-            email: e.target.email.value,
-            password: e.target.password.value,
-            role: e.target.role.value,
-        }).then(() =>{
-            // redirect to login
-            // window.location = "/login"
-            toast("singup success");
-        }).catch((err) =>{
-            // show erros
-            console.log(err);
-            toast.error("soemthing went wrong")
-        })
+        setisSubmittting(true)
+        axios
+            .post("https://ecommerce-sagartmg2.vercel.app/api/users/signup", {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                password: e.target.password.value,
+                role: e.target.role.value,
+            })
+            .then(() => {
+                // redirect to login
+                // window.location = "/login"
+                toast("singup success")
+                navigate("/login")
+            })
+            .catch((err) => {
+                console.log(err)
+                // show erros
+                console.log(err.response?.data?.errors)
+                /*  
+                    [{param:"email",msg:"alrady used"},{param:"password",msg:"alleats 8 charts"}]
+
+                    convert above erros array to following object and change error STAte
+
+                    {
+                        email:"already used",
+                        password:"alteast 8 chars"
+                    }
+                */
+
+                if (err?.response?.status == 400) {
+                    setFormError({
+                        email: "already used",
+                        password: "alteast 8 chars",
+                    })
+                }
+
+                setisSubmittting(false)
+
+                toast.error("soemthing went wrong")
+            })
     }
     return (
         <div>
@@ -59,6 +90,9 @@ export default function Signup() {
                             placeholder="name@flowbite.com"
                             required
                         />
+                        <span className="text-red-400 text-sm">
+                            {formError.email}
+                        </span>
                     </div>
                     <div className="mb-5">
                         <label htmlFor="password" className="form-label">
@@ -71,6 +105,9 @@ export default function Signup() {
                             className="form-control"
                             required
                         />
+                        <span className="text-red-400 text-sm">
+                            {formError.password}
+                        </span>
                     </div>
                     <div className="mb-5">
                         <label htmlFor="role" className="form-label">
@@ -90,9 +127,11 @@ export default function Signup() {
                             login
                         </Link>
                     </p>
+                    
                     <button
+                        disabled={isSubmittting}
                         type="submit"
-                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        className="text-white disabled:cursor-no-drop disabled:bg-blue-300 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                         Submit
                     </button>
