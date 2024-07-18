@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import Header from "../components/Header"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+import {toast } from "react-toastify"
 
-export default function Login() {
+export default function Login({setUser}) {
     const navigate = useNavigate() // return () =>{}
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,11 +13,13 @@ export default function Login() {
                 email: e.target.email.value,
                 password: e.target.password.value,
             })
-            .then(() => {
+            .then((res) => {
                 // redirect to login
                 // window.location = "/login"
                 toast("login success")
                 navigate("/")
+                setUser(res.data.user)
+                
             })
             .catch((err) => {
                 if (err?.response?.status) {
@@ -29,7 +30,6 @@ export default function Login() {
     }
     return (
         <div>
-            <Header />
             <div className="container mt-20 ">
                 <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
                     <div className="mb-5">

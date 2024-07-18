@@ -55,15 +55,13 @@ export default function Signup() {
                         password: "alteast 8 chars",
                     })
                 }
-
                 setisSubmittting(false)
-
                 toast.error("soemthing went wrong")
             })
     }
+
     return (
         <div>
-            <Header />
             <div className="container mt-20 ">
                 <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
                     <div className="mb-5">
@@ -127,7 +125,7 @@ export default function Signup() {
                             login
                         </Link>
                     </p>
-                    
+
                     <button
                         disabled={isSubmittting}
                         type="submit"
