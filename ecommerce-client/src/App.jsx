@@ -13,12 +13,20 @@ import Header from "./components/Header"
 import RootLayout from "./components/RootLayout"
 import { useEffect, useState } from "react"
 import Cart from "./pages/Cart"
+import SellerLayout from "./components/SellerLayout"
 
 function App() {
     const [user, setUser] = useState(null)
-    const [isLoading, setisLoading] = useState(localStorage.getItem(user) ?true : false)
+    const [isLoading, setisLoading] = useState(
+        localStorage.getItem(user) ? true : false
+    )
 
-    const router = createBrowserRouter([
+    let reduxUser = { name: "seller name", role: "seller" }
+     reduxUser = null
+
+    let router
+
+    router = createBrowserRouter([
         {
             path: "",
             element: <RootLayout user={user} setUser={setUser} />,
@@ -37,7 +45,7 @@ function App() {
                 },
                 {
                     path: "cart",
-                    element: <Cart/>,
+                    element: <Cart />,
                 },
                 {
                     path: "products",
@@ -55,6 +63,18 @@ function App() {
             ],
         },
     ])
+
+    if (reduxUser?.role == "seller") {
+        router = createBrowserRouter([
+            {
+                path: "",
+                element: <SellerLayout />,
+                children: [
+                    {}
+                ],
+            },
+        ])
+    }
 
     useEffect(() => {
         let user = localStorage.getItem("user")
@@ -74,7 +94,6 @@ function App() {
 
     return (
         <div>
-            
             <RouterProvider router={router} />
             <ToastContainer />
         </div>

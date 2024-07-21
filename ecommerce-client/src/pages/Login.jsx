@@ -43,7 +43,7 @@ export default function Login({ setUser }) {
                             Your email
                         </label>
                         <input
-                            value="b@b.com"
+                            // value="b@b.com"
                             name="email"
                             type="email"
                             id="email"

@@ -1,15 +1,24 @@
-import React from "react"
+import React, { useState,useEffect } from "react"
 import Header from "../components/Header"
-import { useSelector,useDispatch } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { addCartItem } from "../redux/slices/cartSlice"
+import axios from "axios"
 
 export default function Home() {
-
+    const [trendingProducts, setTrendingProducts] = useState([])
     const dispatch = useDispatch()
 
     const cartItems = useSelector((reduxStore) => {
         return reduxStore.cart.value
     })
+
+    useEffect(() => {
+        axios
+            .get("https://ecommerce-sagartmg2.vercel.app/api/products/trending")
+            .then((res) => {
+                setTrendingProducts(res.data.data)
+            })
+    }, [])
 
     return (
         <div>
@@ -20,13 +29,19 @@ export default function Home() {
                 repellendus corrupti quo voluptas!
             </p>
             <div className="container grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {[1, 2, 3, 4].map((el) => {
+                {trendingProducts.map((el) => {
                     return (
-                        <div className="h-40 border border-black">
-                            <p>cartItems</p>
-                            <button onClick={() =>{
-                              dispatch(addCartItem())
-                            }} className="btn">add to cart</button>
+                        <div key={el._id} className="border border-black">
+                          <img src={el.image} className="h-32"/>
+                            <p>{el.name}</p>
+                            <button
+                                onClick={() => {
+                                    dispatch(addCartItem(el))
+                                }}
+                                className="btn"
+                            >
+                                add to cart
+                            </button>
                         </div>
                     )
                 })}
