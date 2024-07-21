@@ -2,10 +2,15 @@ import React, { useState } from "react"
 import Header from "../components/Header"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import {toast } from "react-toastify"
+import { toast } from "react-toastify"
+import { setReduxUser } from "../redux/slices/userSlice"
+import { useDispatch } from "react-redux"
 
-export default function Login({setUser}) {
+export default function Login({ setUser }) {
+
     const navigate = useNavigate() // return () =>{}
+    const dispatch = useDispatch()
+
     const handleSubmit = (e) => {
         e.preventDefault()
         axios
@@ -17,9 +22,10 @@ export default function Login({setUser}) {
                 // redirect to login
                 // window.location = "/login"
                 toast("login success")
-                navigate("/")
-                setUser(res.data.user)
-                
+                // setUser(res.data.user)
+                dispatch(setReduxUser(res.data.user))
+                localStorage.setItem("user", JSON.stringify(res.data.user))
+                // navigate("/")
             })
             .catch((err) => {
                 if (err?.response?.status) {

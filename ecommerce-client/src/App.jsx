@@ -11,19 +11,20 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Header from "./components/Header"
 import RootLayout from "./components/RootLayout"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function App() {
     const [user, setUser] = useState(null)
+    const [isLoading, setisLoading] = useState(localStorage.getItem(user) ?true : false)
 
     const router = createBrowserRouter([
         {
             path: "",
-            element: <RootLayout user={user} setUser={setUser}/>,
+            element: <RootLayout user={user} setUser={setUser} />,
             children: [
                 {
                     path: "/",
-                    element: <Home  />,
+                    element: <Home />,
                 },
                 {
                     path: "login",
@@ -53,8 +54,26 @@ function App() {
             ],
         },
     ])
+
+    useEffect(() => {
+        let user = localStorage.getItem("user")
+        if (user) {
+            setTimeout(() => {
+                setUser(JSON.parse(user))
+                setisLoading(false)
+            }, 2000)
+        } else {
+            setisLoading(false)
+        }
+    }, [])
+
+    if (isLoading) {
+        return <>loading.....</>
+    }
+
     return (
         <div>
+            
             <RouterProvider router={router} />
             <ToastContainer />
         </div>

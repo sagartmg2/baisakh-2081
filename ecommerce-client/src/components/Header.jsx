@@ -2,9 +2,18 @@ import React, { useState } from "react"
 import { CiMail, CiSearch } from "react-icons/ci"
 import { FaPhoneAlt } from "react-icons/fa"
 import { MdMenu } from "react-icons/md"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { setReduxUser,logoutReduxUser } from "../redux/slices/userSlice"
 
-export default function Header({ user,setUser }) {
+// export default function Header({ user, setUser }) {
+export default function Header() {
+    let user = null
+    let setUser = () =>{}
+
+    let reduxUser = useSelector(( reduxStore ) => reduxStore.user.value )
+    const dispatch = useDispatch()
+
     const [showMenu, setShowMenu] = useState(false)
     return (
         <header className="">
@@ -20,15 +29,22 @@ export default function Header({ user,setUser }) {
                             987325345234
                         </div>
                     </div>
-                    {user ? (
+                    {reduxUser ? (
                         <>
                             <div>
-                                <span>{user.name}</span>
-                                &nbsp;
-                                &nbsp;
-                                <span onClick={() =>{
-                                    setUser(null)
-                                }}>logout</span>
+                                <span>{reduxUser.name}</span>
+                                &nbsp; &nbsp;
+                                <span
+                                    onClick={() => {
+                                        // setUser(null)
+                                        // dispatch(setReduxUser(null))
+                                        dispatch(logoutReduxUser())
+                                        // localStorage.clear()
+                                        localStorage.removeItem("user")
+                                    }}
+                                >
+                                    logout
+                                </span>
                             </div>
                         </>
                     ) : (
