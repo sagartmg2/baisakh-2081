@@ -12,6 +12,7 @@ export default function Header() {
     let setUser = () =>{}
 
     let reduxUser = useSelector(( reduxStore ) => reduxStore.user.value )
+    let cartItems = useSelector(( reduxStore ) => reduxStore.cart.value )
     const dispatch = useDispatch()
 
     const [showMenu, setShowMenu] = useState(false)
@@ -53,6 +54,7 @@ export default function Header() {
                             <Link to="/login">login</Link>
                         </div>
                     )}
+                    <Link to={"/cart"}>cart ({cartItems.length})</Link>
                 </nav>
             </div>
             <nav className=" flex flex-wrap items-center justify-between container py-3 lg:py-4 xl:py-5">

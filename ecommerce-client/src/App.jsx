@@ -12,6 +12,7 @@ import Login from "./pages/Login"
 import Header from "./components/Header"
 import RootLayout from "./components/RootLayout"
 import { useEffect, useState } from "react"
+import Cart from "./pages/Cart"
 
 function App() {
     const [user, setUser] = useState(null)
@@ -36,7 +37,7 @@ function App() {
                 },
                 {
                     path: "cart",
-                    element: <div>Cart page</div>,
+                    element: <Cart/>,
                 },
                 {
                     path: "products",
