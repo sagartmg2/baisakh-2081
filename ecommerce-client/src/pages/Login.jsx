@@ -1,15 +1,21 @@
 import React, { useState } from "react"
 import Header from "../components/Header"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, Navigate, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { toast } from "react-toastify"
 import { setReduxUser } from "../redux/slices/userSlice"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function Login({ setUser }) {
+    let reduxUser = useSelector((store) => store.user.value)
 
     const navigate = useNavigate() // return () =>{}
     const dispatch = useDispatch()
+
+    if (reduxUser) {
+        // navigate('/')
+        return <Navigate to={"/"} />
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,8 +30,9 @@ export default function Login({ setUser }) {
                 toast("login success")
                 // setUser(res.data.user)
                 dispatch(setReduxUser(res.data.user))
-                localStorage.setItem("user", JSON.stringify(res.data.user))
-                // navigate("/")
+                localStorage.setItem("access_token", res.data.access_token)
+                // localStorage.setItem("user", JSON.stringify(res.data.user))
+                navigate("/")
             })
             .catch((err) => {
                 if (err?.response?.status) {
@@ -34,6 +41,7 @@ export default function Login({ setUser }) {
                 toast.error("something went wrong")
             })
     }
+
     return (
         <div>
             <div className="container mt-20 ">

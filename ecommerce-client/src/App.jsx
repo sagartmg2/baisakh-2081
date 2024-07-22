@@ -14,16 +14,19 @@ import RootLayout from "./components/RootLayout"
 import { useEffect, useState } from "react"
 import Cart from "./pages/Cart"
 import SellerLayout from "./components/SellerLayout"
+import axios from "axios"
+import { setReduxUser } from "./redux/slices/userSlice"
+import { useDispatch, useSelector } from "react-redux"
 
 function App() {
+    const dispatch = useDispatch()
+
     const [user, setUser] = useState(null)
     const [isLoading, setisLoading] = useState(
-        localStorage.getItem(user) ? true : false
+        localStorage.getItem("access_token") ? true : false
     )
 
-    let reduxUser = { name: "seller name", role: "seller" }
-     reduxUser = null
-
+    let reduxUser = useSelector((store) => store.user.value)
     let router
 
     router = createBrowserRouter([
@@ -54,10 +57,6 @@ function App() {
                             path: "",
                             element: <div>products page</div>,
                         },
-                        {
-                            path: "add",
-                            element: <div>add product page</div>,
-                        },
                     ],
                 },
             ],
@@ -69,20 +68,31 @@ function App() {
             {
                 path: "",
                 element: <SellerLayout />,
-                children: [
-                    {}
-                ],
+                children: [{}],
             },
         ])
     }
 
     useEffect(() => {
-        let user = localStorage.getItem("user")
-        if (user) {
-            setTimeout(() => {
-                setUser(JSON.parse(user))
-                setisLoading(false)
-            }, 2000)
+        let access_token = localStorage.getItem("access_token")
+        if (access_token) {
+            axios
+                .get(
+                    "https://ecommerce-sagartmg2.vercel.app/api/users/get-user",
+                    {
+                        headers: {
+                            Authorization: `Bearer ${access_token} `,
+                        },
+                    }
+                )
+                .then((res) => {
+                    dispatch(setReduxUser(res.data))
+                    setisLoading(false)
+                })
+                .catch((err) => {
+                    localStorage.removeItem("access_token")
+                    setisLoading(false)
+                })
         } else {
             setisLoading(false)
         }

@@ -14,11 +14,12 @@ export const userSlice = createSlice({
         },
         logoutReduxUser: (state) => {
             state.value = null
+            localStorage.removeItem("access_token")
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { setReduxUser,logoutReduxUser } = userSlice.actions
+export const { setReduxUser, logoutReduxUser } = userSlice.actions
 
 export default userSlice.reducer

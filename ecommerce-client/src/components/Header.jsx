@@ -4,15 +4,15 @@ import { FaPhoneAlt } from "react-icons/fa"
 import { MdMenu } from "react-icons/md"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { setReduxUser,logoutReduxUser } from "../redux/slices/userSlice"
+import { setReduxUser, logoutReduxUser } from "../redux/slices/userSlice"
 
 // export default function Header({ user, setUser }) {
 export default function Header() {
     let user = null
-    let setUser = () =>{}
+    let setUser = () => {}
 
-    let reduxUser = useSelector(( reduxStore ) => reduxStore.user.value )
-    let cartItems = useSelector(( reduxStore ) => reduxStore.cart.value )
+    let reduxUser = useSelector((reduxStore) => reduxStore.user.value)
+    let cartItems = useSelector((reduxStore) => reduxStore.cart.value)
     const dispatch = useDispatch()
 
     const [showMenu, setShowMenu] = useState(false)
@@ -41,7 +41,7 @@ export default function Header() {
                                         // dispatch(setReduxUser(null))
                                         dispatch(logoutReduxUser())
                                         // localStorage.clear()
-                                        localStorage.removeItem("user")
+                                        // localStorage.removeItem("user")
                                     }}
                                 >
                                     logout
@@ -55,6 +55,7 @@ export default function Header() {
                         </div>
                     )}
                     <Link to={"/cart"}>cart ({cartItems.length})</Link>
+                    <Link to="/login">login</Link>
                 </nav>
             </div>
             <nav className=" flex flex-wrap items-center justify-between container py-3 lg:py-4 xl:py-5">
@@ -81,10 +82,13 @@ export default function Header() {
                             home
                         </Link>
                         <a href="">products</a>
-                        <a href="">orders</a>
                         <a href="">about</a>
                         <a href="">contact</a>
                         <a href="">testimonials</a>
+                        {reduxUser && <>
+                            <a href="">orders</a>
+                            <a href="">cart</a>
+                        </>}
                     </div>
                     <div className="flex">
                         <input className="border border-black" />
