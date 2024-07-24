@@ -55,7 +55,6 @@ export default function Header() {
                         </div>
                     )}
                     <Link to={"/cart"}>cart ({cartItems.length})</Link>
-                    <Link to="/login">login</Link>
                 </nav>
             </div>
             <nav className=" flex flex-wrap items-center justify-between container py-3 lg:py-4 xl:py-5">

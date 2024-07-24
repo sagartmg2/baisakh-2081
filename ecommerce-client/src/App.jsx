@@ -17,6 +17,11 @@ import SellerLayout from "./components/SellerLayout"
 import axios from "axios"
 import { setReduxUser } from "./redux/slices/userSlice"
 import { useDispatch, useSelector } from "react-redux"
+import { SELLER } from "./constants/role"
+import Dashboard from "./pages/seller/Dashboard"
+import Products from "./pages/seller/Products"
+import ProductsAdd from "./pages/seller/ProductsAdd"
+import PageNotFound from "./pages/PageNotFound"
 
 function App() {
     const dispatch = useDispatch()
@@ -59,16 +64,41 @@ function App() {
                         },
                     ],
                 },
+                {
+                    path:"*",
+                    element:<PageNotFound/>
+                }
             ],
         },
     ])
 
-    if (reduxUser?.role == "seller") {
+    if (reduxUser?.role == SELLER) {
         router = createBrowserRouter([
             {
                 path: "",
                 element: <SellerLayout />,
-                children: [{}],
+                children: [
+                    {
+                        path:"/",
+                        element:<Dashboard/>
+                    },
+                    {
+                        path:"dashboard",
+                        element:<Dashboard/>
+                    },
+                    {
+                        path:"products",
+                        element:<Products/>
+                    },
+                    {
+                        path:"products/add",
+                        element:<ProductsAdd/>
+                    },
+                    {
+                        path:"*",
+                        element:<PageNotFound/>
+                    }
+                ],
             },
         ])
     }
@@ -99,7 +129,12 @@ function App() {
     }, [])
 
     if (isLoading) {
-        return <>loading.....</>
+        return <>
+                <div className="h-[100vh] flex flex-col gap-3 justify-center items-center">
+                    <p className="text-primary text-4xl">Hekto</p>
+                    <p>loading....</p>
+                </div>
+        </>
     }
 
     return (
