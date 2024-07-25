@@ -20,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { SELLER } from "./constants/role"
 import Dashboard from "./pages/seller/Dashboard"
 import Products from "./pages/seller/Products"
-import ProductsAdd from "./pages/seller/ProductsAdd"
+import ProductsUpsert from "./pages/seller/ProductsUpsert.jsx"
 import PageNotFound from "./pages/PageNotFound"
 
 function App() {
@@ -88,11 +88,21 @@ function App() {
                     },
                     {
                         path:"products",
-                        element:<Products/>
-                    },
-                    {
-                        path:"products/add",
-                        element:<ProductsAdd/>
+                        children:[
+                            {
+                                path:"",
+                                element:<Products/>
+                            },
+                            {
+                                path:"add",
+                                element:<ProductsUpsert/>
+                            },
+                            {
+                                path:"edit/:slug",
+                                element:<ProductsUpsert/>
+                            },
+                        ]
+                       
                     },
                     {
                         path:"*",
