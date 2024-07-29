@@ -24,4 +24,6 @@ app.delete("/api/products/:id", async function (req, res) {
     res.send("create products")
 })
 
-app.listen(8000)
+app.listen(8000,() =>{
+    console.log("server started.");
+})
