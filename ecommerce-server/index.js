@@ -1,29 +1,25 @@
 const express = require("express")
 require("./config/database")
 const authRoute = require("./route/auth")
+const productRoute = require('./route/product')
+const jwt = require("jsonwebtoken")
 
 const app = express()
 /* global middleware */
 app.use(express.json())
-app.use("/api",authRoute)
+app.use("/api", authRoute)
+app.use("/api/products", productRoute)
 
 app.get("/api/test", function (req, res) {
-    res.send("test successfull")
+    let token = jwt.sign({
+        _id: "66a8c38f36aea367f0a46b2a",
+        name: "ram",
+        email: "ram1@gmail.com",
+        role: "buyer",
+    },"asdf")
+    res.send(token)
 })
 
-app.get("/api/products", async function (req, res) {
-    res.send("products list")
-})
-app.post("/api/products", async function (req, res) {
-    res.send("create products")
-})
-app.put("/api/products/:id", async function (req, res) {
-    res.send("create products")
-})
-app.delete("/api/products/:id", async function (req, res) {
-    res.send("create products")
-})
-
-app.listen(8000,() =>{
-    console.log("server started.");
+app.listen(8000, () => {
+    console.log("server started.")
 })
