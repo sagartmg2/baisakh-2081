@@ -62,8 +62,8 @@ async function signup(req, res) {
 async function login(req, res) {
     /* validate form fields */
     let user = await User.findOne({ email: req.body.email })
-    user = user.toObject() // converting mongoose user object to normal js object
     if (user) {
+        user = user.toObject() // converting mongoose user object to normal js object
         let matched = await bcrypt.compare(req.body.password, user.password)
         if (matched) {
             delete user.password

@@ -1,19 +1,9 @@
 const jwt = require("jsonwebtoken")
 
+const fetchProduct = (req, res) => {
+    res.send("products fetched")
+}
 const store = (req, res) => {
-    /* access token */
-    /* verify token */
-    try {
-        let token = req.headers.authorization.replace("Bearer ", "")
-        const JWT_SECRETE_KEY = "shhhhh"
-        const decoded = jwt.verify(token, JWT_SECRETE_KEY)
-        console.log(decoded)
-    } catch {
-        return res.status(401).send({
-            msg: "unauntenticated",
-        })
-    }
-
     res.send("product storeed")
 }
 
@@ -26,6 +16,7 @@ const remove = (req, res) => {
 }
 
 module.exports = {
+    fetchProduct,
     store: store,
     update,
     remove,
