@@ -4,9 +4,21 @@ const Schema = mongoose.Schema
 const ObjectId = Schema.ObjectId
 
 const productSchema = new Schema({
-    name: String,
-    price: Number,
+    name: {
+        type: String,
+        required:true
+    },
+    price: {
+        type: Number,
+    },
     description: String,
-  });
+    user: {
+        required: true,
+        type: ObjectId,
+        ref: "User",
+    },
+    image:String
+})
 
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model("Product", productSchema)
+module.exports = Product

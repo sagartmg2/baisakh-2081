@@ -17,8 +17,6 @@ function checkAuthentication(req, res,next) {
 }
 
 function checkIsSeller(req,res,next){
-    console.log("check if seller");
-    console.log(req.user);
     if(req.user.role == "seller"){
         next()
     }else{
@@ -42,6 +40,7 @@ function checkIsBuyer(req,res,next){
 
 module.exports = {
     checkAuthentication: checkAuthentication,
-    checkIsSeller
+    checkIsSeller,
+    checkIsBuyer,
 
 }
