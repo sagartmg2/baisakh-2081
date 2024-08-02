@@ -7,8 +7,10 @@ const fileUpload = require("express-fileupload")
 
 const app = express()
 /* global middleware */
+app.use('/uploads', express.static('uploads'))
 app.use(express.json()) // => () =>{}
 app.use(fileUpload())
+
 // app.use(checkAuthentication)
 
 app.use("/api", authRoute)
